@@ -18,6 +18,25 @@ import { Card,
     CardTitle,
 } from "@/components/ui/card"
 
+function TeaLink() {
+    const [teaLink, setTeaLink] = useState(teaRand());
+
+    const handleClick = () => {
+        const newTeaLink = teaRand();
+        setTeaLink(newTeaLink)
+    }
+    
+    return (
+        <div>
+            <a href={teaLink} onClick={handleClick} target="_blank">
+                <Button className="ml-3 share" variant="outline" size="icon">
+                    <Coffee className="h-5 w-5"/>
+                </Button>
+            </a>
+        </div>
+    )
+}
+
 export default function RQuote() {
     return (
         <div className="flex items-center justify-center h-screen mx-4">
@@ -42,40 +61,18 @@ export default function RQuote() {
                 </CardContent>
                 <CardFooter className="text-sm md:text-base lg:text-lg xl:text-lg">
                     <TeaLink />
-                    {/* <a href={teaRand()} target="_blank">
-                        <Button className="ml-3 share" variant="outline" size="icon">
-                            <Coffee className="h-5 w-5"/>
-                        </Button>
-                    </a> */}
+
                     <a id="tweet-quote" href="https://www.twitter.com/intent/tweet">
                         <Button className="ml-3 share" variant="outline" size="icon">
                             <Twitter className="h-5 w-5"/>
                         </Button>
                     </a>
+                    
                     <Button className="ml-3 share" variant="outline" size="icon">
                         <Link2 className="h-5 w-5"/>
                     </Button>
                 </CardFooter>
             </Card>
-        </div>
-    )
-}
-
-function TeaLink() {
-    const [teaLink, setTeaLink] = useState(teaRand());
-
-    const handleClick = () => {
-        const newTeaLink = teaRand();
-        setTeaLink(newTeaLink)
-    }
-    
-    return (
-        <div>
-            <a href={teaLink} onClick={handleClick} target="_blank">
-                <Button className="ml-3 share" variant="outline" size="icon">
-                    <Coffee className="h-5 w-5"/>
-                </Button>
-            </a>
         </div>
     )
 }
