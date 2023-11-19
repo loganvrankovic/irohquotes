@@ -12,12 +12,9 @@ const quotes = [
     ["Is it your own destiny? Or is it a destiny someone else has tried to force on you? It's time for you to look inward, and begin asking yourself the big questions. Who are you? and what do you want?", "/path"]
 ]
 
-export function textRand() {
+export function quoteRand() {
     let x = Math.floor(Math.random() * 11);
-    return quotes[x][0];
-}
-
-export function mp3Rand() {
-    let x = Math.floor(Math.random() * 11);
-    return quotes[x][1];
+    const text = quotes[x][0];
+    const sound = quotes[x][1];
+    return [text, sound]
 }
