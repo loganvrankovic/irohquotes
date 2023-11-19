@@ -62,7 +62,7 @@ export default function RQuote() {
                 <CardFooter className="text-sm md:text-base lg:text-lg xl:text-lg">
                     <TeaLink />
 
-                    <a id="tweet-quote" href="https://www.twitter.com/intent/tweet">
+                    <a id="tweet-quote" href="https://www.twitter.com/intent/tweet?text=">
                         <Button className="ml-3 share" variant="outline" size="icon">
                             <Twitter className="h-5 w-5"/>
                         </Button>
