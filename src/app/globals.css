@@ -20,6 +20,22 @@
   }
 }
 
+.share {
+  border: 1px solid #708090;
+  background-color: #e0e0e0;
+}
+.share:hover {
+  background-color: #d6d6d6 !important;
+}
+.head {
+  right: 90px;
+}
+@media screen and (max-width: 359px) {
+  .smol {
+    color: #E5E7EB !important;
+  }
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;
