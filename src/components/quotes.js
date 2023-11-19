@@ -7,7 +7,7 @@ const quotes = [
     ["You must let go of your feelings of shame if you want your anger to go away. Pride is not the opposite of shame, but its source. True humility is the only antidote to shame.", "/path"],
     ["Sharing tea with a fascinating stranger is one of life's true delights", "/path"],
     ["It is usually best to admit mistakes when they occur, and to seek to restore honor.", "/path"],
-    ["There is nothing wrong with letting people who love you help you.", "/path"],
+    ["Many things that seem threatening in the dark become welcoming when we shine light on them.", "/path"],
     ["Sometimes life is like this dark tunnel. You can't always see the light at the end of the tunnel, but if you just keep moving... You will come to a better place.", "/path"],
     ["Is it your own destiny? Or is it a destiny someone else has tried to force on you? It's time for you to look inward, and begin asking yourself the big questions. Who are you? and what do you want?", "/path"]
 ]
