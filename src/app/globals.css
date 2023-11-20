@@ -3,7 +3,7 @@
 @tailwind utilities;
  
 .wrapper {
-  background-color: slategray;
+  /* background-color: rgb(117, 133, 108); */
   min-height: 100vh;
 }
 
@@ -19,12 +19,25 @@
     margin-right: -8em;
   }
 }
+@media screen and (max-width: 360px) {
+  .smol {
+    visibility: hidden;
+  }
+}
 
 .head {
   right: 90px;
 }
 
+.fade-in {
+  opacity: 1 !important;
+  transition: opacity 0.5s ease-in !important;
+}
 
+.fade-out {
+  opacity: 0;
+  transition: opacity 0.5s ease-out !important;
+}
 
 
 @layer base {
@@ -73,9 +86,6 @@
     --ring: 142.4 71.8% 29.2%;
   }
 }
-
-
-
 
 @layer base {
   * {
