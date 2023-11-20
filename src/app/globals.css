@@ -3,7 +3,6 @@
 @tailwind utilities;
  
 .wrapper {
-  /* background-color: rgb(117, 133, 108); */
   min-height: 100vh;
 }
 
@@ -12,7 +11,6 @@
   bottom: 0;
   right: 0;
   z-index: 999;
-  /* margin-right: -8em; */
 }
 @media screen and (max-width: 768px) {
   .iroh {
