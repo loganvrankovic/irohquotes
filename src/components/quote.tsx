@@ -2,6 +2,7 @@
 import * as React from "react"
 import { useState, useRef } from "react"
 import Link from "next/link"
+import Help from "../components/instructions"
 import teaRand from "../components/tea"
 import quoteRand from "../components/quotes"
 import { ModeToggle } from "@/app/page"
@@ -85,13 +86,13 @@ const getColor = () => {
        quoteState[1] === "irohmp3/iroh1.mp3" ? "#C7CEDB" :
        quoteState[1] === "irohmp3/iroh2.mp3" ? "#94849B" :
        quoteState[1] === "irohmp3/iroh3.mp3" ? "#A0AAB2" :
-       quoteState[1] === "irohmp3/iroh4.mp3" ? "#363636" :
+       quoteState[1] === "irohmp3/iroh4.mp3" ? "#d5ff80" :
        quoteState[1] === "irohmp3/iroh5.mp3" ? "#242F40" :
        quoteState[1] === "irohmp3/iroh6.mp3" ? "#F9E784" :
        quoteState[1] === "irohmp3/iroh7.mp3" ? "#685044" :
        quoteState[1] === "irohmp3/iroh8.mp3" ? "#8075FF" :
        quoteState[1] === "irohmp3/iroh9.mp3" ? "#E5D1D0" :
-       quoteState[1] === "irohmp3/iroh10.mp3" ? "#2A2C24" :
+       quoteState[1] === "irohmp3/iroh10.mp3" ? "#ccccff" :
        "#2A2C24";
 }
 
@@ -122,6 +123,9 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({ audioFile }) => {
     return (
         <div className="flex items-center justify-center h-screen mx-auto" style={{ backgroundColor: bgColor, transition: "background-color 1s" }}>
             <Card className="p-3 max-w-lg mb-40 mx-6">
+                {/* <div className="relative bottom-10 text-xs md:text-xs lg:text-sm xl:text-sm">
+                    <Help />
+                </div> */}
                 <div className="relative">
                     <Button onClick={refreshQuote} className="share absolute right-6 top-5" variant="outline">
                         <RotateCw className="h-5 w-5" />
@@ -154,6 +158,9 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({ audioFile }) => {
                         </Button>
                     </a>
                     <CopyURLButton />
+                    <div className="relative ml-3 text-xs md:text-xs lg:text-sm xl:text-sm">
+                        <Help />
+                    </div>
                 </CardFooter>
             </Card>
         </div>
