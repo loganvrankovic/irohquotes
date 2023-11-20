@@ -12,7 +12,7 @@ const quotes = [
     ["Is it your own destiny? Or is it a destiny someone else has tried to force on you? It's time for you to look inward, and begin asking yourself the big questions. Who are you? and what do you want?", "/path", "https://www.twitter.com/intent/tweet?hashtags=iroh&hashtags=quotes&related=iroh&text=Is%20it%20your%20own%20destiny?%20Or%20is%20it%20a%20destiny%20someone%20else%20has%20tried%20to%20force%20on%20you?%20It's%20time%20for%20you%20to%20look%20inward,%20and%20begin%20asking%20yourself%20the%20big%20questions.%20Who%20are%20you?%20and%20what%20do%20you%20want?"]
 ]
 
-export function quoteRand() {
+export default function quoteRand() {
     let x = Math.floor(Math.random() * 11);
     const text = quotes[x][0];
     const sound = quotes[x][1];
