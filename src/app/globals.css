@@ -10,7 +10,7 @@
   position: fixed;
   bottom: 0;
   right: 0;
-  z-index: 999;
+  z-index: 998;
 }
 @media screen and (max-width: 768px) {
   .iroh {
@@ -37,6 +37,10 @@
   transition: opacity 0.5s ease-out !important;
 }
 
+.shadfooter {
+  position: relative;
+  z-index: 999;
+}
 
 @layer base {
   :root {

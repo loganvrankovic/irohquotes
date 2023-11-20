@@ -149,7 +149,7 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({ audioFile }) => {
                         </p>
                     </div>
                 </CardContent>
-                <CardFooter className="text-sm md:text-base lg:text-lg xl:text-lg">
+                <CardFooter className="shadfooter text-sm md:text-base lg:text-lg xl:text-lg">
                     <ModeToggle />
                     <TeaLink />
                     <a id="tweet-quote" href={quoteState[2]} target="_blank">

@@ -2,8 +2,6 @@
 import * as React from "react"
 import { MoonIcon, SunIcon } from "@radix-ui/react-icons"
 import { useTheme } from "next-themes"
-import Image from 'next/image'
-import RQuote from '../components/quote'
 import { Button } from "@/components/ui/button"
 import {
   DropdownMenu,
