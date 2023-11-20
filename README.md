@@ -13,4 +13,4 @@ Random quotes from Uncle Iroh! You can:
 At the top right of the quote box, listen to Iroh share his words of wisdom, or refresh the quote to see a new piece of advice with a different mood.  
 This website exists as one of my favorite projects I started while exploring different coding challenge websites, this one being from the freeCodeCamp final project challenges.  
 
-![iroh-demo]("https://imgur.com/a/6tcRGSN")
+![iroh-demo]("https://i.imgur.com/PfJCzMa.png")
