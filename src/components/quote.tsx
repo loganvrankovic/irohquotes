@@ -5,7 +5,7 @@ import Link from "next/link"
 import Help from "../components/instructions"
 import teaRand from "../components/tea"
 import quoteRand from "../components/quotes"
-import { ModeToggle } from "@/app/page"
+import ModeToggle  from "@/components/modetoggle"
 import { Coffee, 
     Twitter, 
     Quote, 
