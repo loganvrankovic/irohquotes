@@ -6,12 +6,7 @@ export default function Help() {
         alert(`info:
         1. Refresh: get a new random Iroh quote
         2. Headphone: listen to Iroh say the current quote 
-        3. Little buttons: 
-            1. change theme 
-            2. random Wikipedia page about 
-            tea Iroh likes, 
-            3. Tweet the current quote, and 
-            4. copy the URL of this site
+        3. Little buttons: change theme, go to a random Wikipedia page about tea Iroh likes, Tweet the current quote, and copy the URL of this site
         
         by https://github.com/loganvrankovic `)
     }
