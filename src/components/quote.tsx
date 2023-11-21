@@ -116,7 +116,7 @@ function InstructionsCard({ onClose }: InstructionsCardProps) {
                 </p>
             </CardContent>
             <CardDescription>bottom-left buttons</CardDescription>
-            <CardContent className="pt-2">
+            <CardContent className="pt-2 sm:text-xs md:text-sm lg:text-base xl:text-md">
                 <p className="flex items-center">
                     <Sun size="14px" className="mr-1"/>
                     <span className="ml-2">change the quote card&apos;s theme</span>
