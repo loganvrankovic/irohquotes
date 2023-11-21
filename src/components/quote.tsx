@@ -131,7 +131,7 @@ function InstructionsCard({ onClose }: InstructionsCardProps) {
                 </p>
                 <p className="flex items-center">
                     <Link2 size="14px" className="mr-1"/>
-                    <span className="ml-2">Copy this website&apos;s URL to share</span>
+                    <span className="ml-2">copy this website&apos;s URL to share</span>
                 </p>
             </CardContent>
             <CardContent>
