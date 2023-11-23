@@ -211,11 +211,11 @@ export default function RQuote() {
 
     return (
         <div className="flex items-center justify-center h-screen mx-auto" style={{ backgroundColor: bgColor, transition: "background-color 1s" }}>
-            <Card className="p-3 max-w-lg mb-40 mx-6">
+            <Card className="quotecard p-3 max-w-lg mb-40 mx-6">
                 {/* <div className="relative bottom-10 text-xs md:text-xs lg:text-sm xl:text-sm">
                     <Help />
                 </div> */}
-                <div className="relative">
+                <div className="relative shadheader">
                     <Button onClick={refreshQuote} className="share absolute right-6 top-5" variant="outline">
                         <RotateCw className="h-5 w-5" />
                     </Button>
