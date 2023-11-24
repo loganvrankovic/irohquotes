@@ -147,8 +147,12 @@ function InstructionsCard({ onClose }: InstructionsCardProps) {
     )
 }
 
+interface RQuoteProps {
+    onBgColorChange: (newColor: string) => void;
+}
+
 // random quote div -------------------------------------------------
-export default function RQuote() {
+export default function RQuote({ onBgColorChange }: RQuoteProps) {
     const [quoteState, setQuoteState] = useState(quoteRand());
     const [bgColor, setBgColor] = useState<string>("#7E9181")
     const [isFading, setIsFading] = useState(false);
@@ -160,6 +164,7 @@ export default function RQuote() {
         setTimeout(() => {
             const newQuote = quoteRand();
             const newBgColor = getColor();
+            onBgColorChange(newBgColor);
             setBgColor(newBgColor);
             setQuoteState(newQuote);
             setIsFading(false);
