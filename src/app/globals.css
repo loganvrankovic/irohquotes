@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
  
+html {
+  background-color: #7E9181;
+}
+
 .wrapper {
   /* min-height: 100vh; */
   height: 100vh;
@@ -38,16 +42,19 @@
 }
 @media screen and (max-height: 652px) {
   .iroh {
-    transform: scale(0.6);
+    transform: scale(0.5);
     position: fixed;
     bottom: 0;
     right: 0;
-    margin-right: -24em;
-    margin-bottom: -7em;
+    margin-right: -20.3em;
+    margin-bottom: -8em;
     z-index: 997;
   }
   .quotecard {
     margin-bottom: 2rem;
+    margin-right: 3rem;
+    margin-left: -2rem;
+    margin-top: 1rem;
   }
 }
 

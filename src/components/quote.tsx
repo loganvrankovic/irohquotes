@@ -1,8 +1,6 @@
 'use client'
 import * as React from "react"
 import { useState, useRef } from "react"
-import Link from "next/link"
-// import Help from "../components/instructions"
 import teaRand from "../components/tea"
 import quoteRand from "../components/quotes"
 import ModeToggle  from "@/components/modetoggle"
@@ -80,7 +78,6 @@ function Help({onClick}: HelpProps) {
         <div>
             <p
             style={{ textDecoration: "underline", cursor: "pointer" }}
-            // onClick={handleHelpClick}
             className="flex items-center"
             onClick={handleClick}
             >
@@ -151,7 +148,7 @@ interface RQuoteProps {
     onBgColorChange: (newColor: string) => void;
 }
 
-// random quote div -------------------------------------------------
+// random quote ----------------------------------------------------
 export default function RQuote({ onBgColorChange }: RQuoteProps) {
     const [quoteState, setQuoteState] = useState(quoteRand());
     const [bgColor, setBgColor] = useState<string>("#7E9181")
