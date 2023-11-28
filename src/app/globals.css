@@ -12,11 +12,16 @@ html, body {
   width: 100%;
 }
 
+.quotecard {
+  transition: 1s;
+}
+
 .iroh {
   position: fixed;
   bottom: 0;
   right: 0;
   z-index: 997;
+  transition: 1s;
 }
 @media screen and (max-width: 768px) {
   .iroh {
@@ -55,6 +60,15 @@ html, body {
     margin-right: 3rem;
     margin-left: -2rem;
     margin-top: -3rem;
+  }
+  .infohori {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+  }
+  .github {
+    justify-content: center;
+    margin-bottom: -16px;
   }
 }
 
