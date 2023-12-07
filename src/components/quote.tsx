@@ -124,7 +124,7 @@ function InstructionsCard({ onClose }: InstructionsCardProps) {
                     </p>
                     <p className="flex items-center">
                         <Coffee size="14px" className="mr-1"/>
-                        <span className="ml-2">learn about different tea that Iroh enjoys</span>
+                        <span className="ml-2">learn about a random tea that Iroh enjoys</span>
                     </p>
                     <p className="flex items-center">
                         <Twitter size="14px" className="mr-1"/>
