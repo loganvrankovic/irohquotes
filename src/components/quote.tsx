@@ -1,29 +1,19 @@
 'use client'
 import * as React from "react"
 import { useState, useRef } from "react"
+
+import { Coffee, Twitter, Quote, Link2, RotateCw, Headphones } from "lucide-react"
+import { Card, CardContent, CardDescription, CardFooter, CardHeader } from "@/components/ui/card"
+import { Button } from "./ui/button"
+import { Toaster, toast } from "sonner"
+
 import teaRand from "../components/tea"
 import quoteRand from "../components/quotes"
 import ModeToggle  from "@/components/modetoggle"
-import { Coffee, 
-    Twitter, 
-    Github,
-    Quote, 
-    Link2, 
-    RotateCw, 
-    Headphones,
-    XCircle,
-    Sun,
-    Info } from "lucide-react"
-import { Button } from "./ui/button"
-import { Card, 
-    CardContent,
-    CardDescription,
-    CardFooter,
-    CardHeader,
-    CardTitle,
-} from "@/components/ui/card"
-import { error } from "console"
+import Help from "@/components/instructions"
+import { InstructionsCard } from "@/components/instructions"
 
+// random tea link button 
 function TeaLink() {
     const [teaLink, setTeaLink] = useState(teaRand());
 
@@ -31,7 +21,6 @@ function TeaLink() {
         const newTeaLink = teaRand();
         setTeaLink(newTeaLink)
     }
-   
     
     return (
         <div>
@@ -44,12 +33,19 @@ function TeaLink() {
     )
 }
 
+// copy URL toaster 
 function CopyURLButton() {
     const copyURLToClipboard = () => {
         const currentURL = window.location.href;
         navigator.clipboard.writeText(currentURL)
             .then(() => {
-                alert('URL copied to clipboard!')
+                toast('URL copied to clipboard', {
+                    description: "Share tea with a fascinating stranger!",
+                    action: {
+                        label: "Clear",
+                        onClick: () => console.log('toast clear')
+                    }
+                })
             })
             .catch((error) => {
                 console.error('Error copying to clipboard:', error);
@@ -58,104 +54,17 @@ function CopyURLButton() {
     }
 
     return (
-        <Button onClick={copyURLToClipboard} 
-        className="ml-3 share" variant="outline" size="icon">
-            <Link2 className="h-5 w-5"/>
-        </Button>
-    )
-}
-
-interface HelpProps {
-    onClick: () => void;
-}
-
-function Help({onClick}: HelpProps) {
-    const handleClick = () => {
-        onClick();
-    }
-    
-    return (
         <div>
-            <p
-            style={{ textDecoration: "underline", cursor: "pointer" }}
-            className="flex items-center"
-            onClick={handleClick}
-            >
-                <Info size="14px" className="mr-1" />
-                info
-            </p>
+            <Toaster position="top-center" />
+            <Button onClick={copyURLToClipboard} className="ml-3 share" variant="outline" size="icon">
+                <Link2 className="h-5 w-5"/>
+            </Button>
         </div>
     )
 }
 
-interface InstructionsCardProps {
-    onClose: () => void;
-}
-
-function InstructionsCard({ onClose }: InstructionsCardProps) {
-    return (
-        <Card className="infocard absolute p-8 shadow-xl mx-3">
-         <CardTitle className=""><p
-            className="flex items-center"
-            >
-                <Info size="16px" className="mr-1" />
-                info
-            </p></CardTitle>
-            <div className="infohori">
-                <div className="info1">
-                    <CardDescription className="pt-6">top-right buttons</CardDescription>
-                    <CardContent className="pt-2 sm:text-xs md:text-sm lg:text-base xl:text-md">
-                        <p className="flex items-center">
-                            <RotateCw size="14px" className="mr-1"/>
-                            <span className="ml-2">refresh the quote and mood</span>
-                        </p>
-                        <p className="flex items-center">
-                            <Headphones size="14px" className="mr-1"/>
-                            <span className="ml-2">listen to Iroh&apos;s words of wisdom</span>
-                        </p>
-                    </CardContent>
-                </div>
-                <div className="info2">
-                <CardDescription>bottom-left buttons</CardDescription>
-                <CardContent className="pt-2 sm:text-xs md:text-sm lg:text-base xl:text-md">
-                    <p className="flex items-center">
-                        <Sun size="14px" className="mr-1"/>
-                        <span className="ml-2">change the quote card&apos;s theme</span>
-                    </p>
-                    <p className="flex items-center">
-                        <Coffee size="14px" className="mr-1"/>
-                        <span className="ml-2">learn about a random tea that Iroh enjoys</span>
-                    </p>
-                    <p className="flex items-center">
-                        <Twitter size="14px" className="mr-1"/>
-                        <span className="ml-2">Tweet your favorite quote</span>
-                    </p>
-                    <p className="flex items-center">
-                        <Link2 size="14px" className="mr-1"/>
-                        <span className="ml-2">copy this website&apos;s URL to share</span>
-                    </p>
-                </CardContent>
-                </div>
-            </div>
-            <CardContent>
-                <p className="github flex items-center">
-                    <Github className="mr-1 sm:text-xs md:text-sm lg:text-base xl:text-md"/>
-                    <span className="ml-2 underline"><a href="https://github.com/loganvrankovic">https://github.com/loganvrankovic</a></span>
-                </p>
-            </CardContent>
-            <CardContent className="text-center pt-2 mb-[-20px]">
-                <Button onClick={onClose} variant="ghost"><XCircle /></Button>
-            </CardContent>
-        </Card>
-    )
-}
-
-interface RQuoteProps {
-    onBgColorChange: (newColor: string) => void;
-}
-
-// random quote ----------------------------------------------------
-export default function RQuote({ onBgColorChange }: RQuoteProps) {
+// main quote component 
+export default function RQuote({ onBgColorChange }: { onBgColorChange: (newColor: string) => void }) {
     const [quoteState, setQuoteState] = useState(quoteRand());
     const [bgColor, setBgColor] = useState<string>("#7E9181")
     const [isFading, setIsFading] = useState(false);
@@ -193,11 +102,8 @@ export default function RQuote({ onBgColorChange }: RQuoteProps) {
             "#2A2C24";
     }
 
-    interface AudioPlayerProps {
-     audioFile: string;
-    }
-
-    const AudioPlayer: React.FC<AudioPlayerProps> = ({ audioFile }) => {
+    // audio player component 
+    const AudioPlayer: React.FC<{ audioFile: string }> = ({ audioFile }) => {
         const audioRef = useRef<HTMLAudioElement>(null);
 
         const playAudio = () => {
@@ -220,20 +126,13 @@ export default function RQuote({ onBgColorChange }: RQuoteProps) {
     return (
         <div className="flex items-center justify-center h-screen mx-auto" style={{ backgroundColor: bgColor, transition: "background-color 1s" }}>
             <Card className="quotecard p-3 max-w-lg mb-40 mx-6">
-                {/* <div className="relative bottom-10 text-xs md:text-xs lg:text-sm xl:text-sm">
-                    <Help />
-                </div> */}
                 <div className="relative shadheader">
                     <Button onClick={refreshQuote} className="share absolute right-6 top-5" variant="outline">
                         <RotateCw className="h-5 w-5" />
                     </Button>
-                    {/* <Button className="share head absolute top-5" variant="outline">
-                        <Headphones className="h-5 w-5" />
-                    </Button> */}
                     <AudioPlayer audioFile={quoteState[1]} />
                 </div>
                 <CardHeader>
-                    {/* <CardTitle></CardTitle> */}
                     <CardDescription className="smol text-sm md:text-base lg:text-lg xl:text-lg">Uncle Iroh says...</CardDescription>
                 </CardHeader>
                 <CardContent>

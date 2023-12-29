@@ -19,6 +19,8 @@ export default function Home() {
       <RQuote onBgColorChange={handleBgColorChange} />
       <div className="iroh">
         <Image
+        // original image likely by Dafoose (DeviantArt), 2009
+        // transparent retrace by R3CONN3R (DeviantArt), 2019
         src="/irohbg.png" width={900} height={900}
         alt="Uncle with his tea..."
         />
