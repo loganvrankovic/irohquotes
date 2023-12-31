@@ -1,4 +1,4 @@
-import { Info, RotateCw, Headphones, Sun, Coffee, Twitter, Link2, Github, XCircle } from "lucide-react";
+import { Info, RotateCw, Headphones, Sun, Coffee, Twitter, Link2, Github, XCircle, Camera } from "lucide-react";
 import { Card, CardTitle, CardDescription, CardContent } from "./ui/card";
 import { Button } from "./ui/button";
 
@@ -31,20 +31,7 @@ export function InstructionsCard({ onClose }: { onClose: () => void }) {
                 info
             </p></CardTitle>
             <div className="infohori">
-                <div className="info1">
-                    <CardDescription className="pt-6">top-right buttons</CardDescription>
-                    <CardContent className="pt-2 sm:text-xs md:text-sm lg:text-base xl:text-md">
-                        <p className="flex items-center">
-                            <RotateCw size="14px" className="mr-1"/>
-                            <span className="ml-2">refresh the quote and mood</span>
-                        </p>
-                        <p className="flex items-center">
-                            <Headphones size="14px" className="mr-1"/>
-                            <span className="ml-2">listen to Iroh&apos;s words of wisdom</span>
-                        </p>
-                    </CardContent>
-                </div>
-                <div className="info2">
+                <div className="info2 mt-6">
                 <CardDescription>bottom-left buttons</CardDescription>
                 <CardContent className="pt-2 sm:text-xs md:text-sm lg:text-base xl:text-md">
                     <p className="flex items-center">
@@ -52,8 +39,8 @@ export function InstructionsCard({ onClose }: { onClose: () => void }) {
                         <span className="ml-2">change the quote card&apos;s theme</span>
                     </p>
                     <p className="flex items-center">
-                        <Coffee size="14px" className="mr-1"/>
-                        <span className="ml-2">learn about a random tea that Iroh enjoys</span>
+                        <Camera size="14px" className="mr-1"/>
+                        <span className="ml-2">switch to screenshot mode</span>
                     </p>
                     <p className="flex items-center">
                         <Twitter size="14px" className="mr-1"/>
@@ -65,16 +52,42 @@ export function InstructionsCard({ onClose }: { onClose: () => void }) {
                     </p>
                 </CardContent>
                 </div>
+                <div className="info1">
+                    <div>
+                        <CardDescription className="">top-right buttons</CardDescription>
+                        <CardContent className="pt-2 sm:text-xs md:text-sm lg:text-base xl:text-md">
+                            <p className="flex items-center">
+                                <RotateCw size="14px" className="mr-1"/>
+                                <span className="ml-2">refresh the quote and mood</span>
+                            </p>
+                            <p className="flex items-center">
+                                <Headphones size="14px" className="mr-1"/>
+                                <span className="ml-2">listen to Iroh&apos;s words of wisdom</span>
+                            </p>
+                        </CardContent>
+                        <div>
+                            <CardDescription>clicking Iroh will</CardDescription>
+                            <CardContent className="pt-2 sm:text-xs md:text-sm lg:text-base xl:text-md">
+                                <p className="flex items-center">
+                                    <Coffee size="14px" className="mr-1"/>
+                                    <span className="ml-2">open a random wiki page about a tea leaf</span>
+                                </p>
+                            </CardContent>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <CardContent>
-                <p className="github flex items-center">
-                    <Github className="mr-1 sm:text-xs md:text-sm lg:text-base xl:text-md"/>
-                    <span className="ml-2 underline"><a href="https://github.com/loganvrankovic">https://github.com/loganvrankovic</a></span>
-                </p>
-            </CardContent>
-            <CardContent className="text-center pt-2 mb-[-20px]">
-                <Button onClick={onClose} variant="ghost"><XCircle /></Button>
-            </CardContent>
+            <div className="flex flex-col justify-center items-center -mt-1">
+                <CardContent>
+                    <p className="github flex items-center mt-4">
+                        <Github className="mr-1 sm:text-xs md:text-sm lg:text-base xl:text-md"/>
+                        <span className="ml-2 underline"><a href="https://github.com/loganvrankovic">https://github.com/loganvrankovic</a></span>
+                    </p>
+                </CardContent>
+                <CardContent className="text-center pt-2 mb-[-20px]">
+                    <Button onClick={onClose} variant="ghost"><XCircle /></Button>
+                </CardContent>
+            </div>
         </Card>
     )
 }
