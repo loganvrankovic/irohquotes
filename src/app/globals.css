@@ -14,6 +14,9 @@ html, body {
 .mainBtn {
   transition: none !important;
 }
+.mainBtn:focus {
+  outline: none !important;
+}
 
 @layer base {
   :root {
