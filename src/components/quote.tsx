@@ -69,7 +69,7 @@ export default function RQuote({ onBgColorChange }: { onBgColorChange: (newColor
         const sleep = (ms: number | undefined) => new Promise(resolve => setTimeout(resolve, ms));
 
         if (!photomode && outlineFade) {
-            await sleep(50);
+            await sleep(75);
             setOutlineFade(false);
         }
     }
@@ -139,7 +139,7 @@ export default function RQuote({ onBgColorChange }: { onBgColorChange: (newColor
                     <AudioPlayer audioFile={quoteState[1]} />
                 </div>
                 <CardHeader>
-                    <CardDescription className="smol text-sm md:text-base lg:text-lg xl:text-lg">Uncle Iroh says...</CardDescription>
+                    <CardDescription className="smol text-sm md:text-base lg:text-lg xl:text-lg pt-0.5">Uncle Iroh says...</CardDescription>
                 </CardHeader>
                 <CardContent>
                     <div className={`flex my-4 ${photomode ? 'cursor-pointer' : ''}`} onClick={photomode ? switchMode : undefined}>
