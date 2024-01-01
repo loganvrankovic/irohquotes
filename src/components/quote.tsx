@@ -2,7 +2,7 @@
 import * as React from "react"
 import { useState, useRef } from "react"
 
-import { Twitter, Quote, Link2, RotateCw, Headphones } from "lucide-react"
+import { Twitter, Quote, Link2, RotateCw, Headphones, Camera } from "lucide-react"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader } from "@/components/ui/card"
 import { Button } from "./ui/button"
 import { Toaster, toast } from "sonner"
@@ -22,6 +22,7 @@ export default function RQuote({ onBgColorChange }: { onBgColorChange: (newColor
 
     const [photomode, setPhotomode] = React.useState<boolean>(false);
     const [outlineFade, setOutlineFade] = React.useState<boolean>(false);
+    const [sawWarning, setSawWarning] = React.useState<boolean>(false);
 
     const refreshQuote = () => {
         setIsFading(true)
@@ -56,11 +57,10 @@ export default function RQuote({ onBgColorChange }: { onBgColorChange: (newColor
     }
 
     const switchMode = () => {
-        !photomode? setPhotomode(true) : setPhotomode(false);
-
-        if (outlineFade) {
-            setOutlineFade(false);
-        }
+        !photomode ? setPhotomode(true) : setPhotomode(false);
+        
+        !sawWarning ? setSawWarning(true) : null;
+        outlineFade ? setOutlineFade(false) : null;
     }
 
     const handleFade = async () => {
@@ -69,7 +69,7 @@ export default function RQuote({ onBgColorChange }: { onBgColorChange: (newColor
         const sleep = (ms: number | undefined) => new Promise(resolve => setTimeout(resolve, ms));
 
         if (!photomode && outlineFade) {
-            await sleep(75);
+            await sleep(220);
             setOutlineFade(false);
         }
     }
@@ -154,7 +154,15 @@ export default function RQuote({ onBgColorChange }: { onBgColorChange: (newColor
                 </CardContent>
                 <CardFooter className="shadfooter text-sm md:text-base lg:text-lg xl:text-lg">
                     <ModeToggle value={photomode} />
-                    <PhotoMode value={photomode} onClick={switchMode} onFade={handleFade} />
+                    <div>
+                        {!sawWarning ? (
+                            <PhotoMode value={photomode} onClick={switchMode} onFade={handleFade} />
+                        ) : (
+                            <Button className={`${ photomode ? 'hidden' : '' } mainBtn ml-3 share`} variant="outline" size="icon" onClick={switchMode}>
+                                <Camera className="h-5 w-5" />
+                            </Button>
+                        )}
+                    </div>
                     <a id="tweet-quote" href={quoteState[2]} target="_blank">
                         <Button className={`${ photomode ? 'hidden' : ''} mainBtn ml-3 share`} variant="outline" size="icon">
                             <Twitter className="h-5 w-5"/>
