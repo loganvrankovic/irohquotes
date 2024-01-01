@@ -41,6 +41,9 @@ export default function PhotoMode({value, onClick, onFade }: { value: boolean; o
                             including this toggle. 
                         </li>
                         <li className="pt-3 flex justify-content">
+                            Resize your browser window to position Iroh and the quote card to your liking.
+                        </li>
+                        <li className="pt-3 flex justify-content">
                             <p>
                                 To exit screenshot mode, <span className="font-bold">click or tap</span> the quote.
                             </p>
