@@ -8,7 +8,7 @@ const AlertDialog = AlertDialogPrimitive.Root
 const AlertDialogTrigger = AlertDialogPrimitive.Trigger
 const AlertDialogPortal = AlertDialogPrimitive.Portal
 
-//hack to prevent background dimming when horizontal on mobile
+//hack to prevent background dimming when not on a large screen
 type AlertDialogOverlayProps = HTMLAttributes<HTMLDivElement>;
 
 const AlertDialogOverlay = forwardRef<HTMLDivElement, AlertDialogOverlayProps>(
@@ -17,7 +17,7 @@ const AlertDialogOverlay = forwardRef<HTMLDivElement, AlertDialogOverlayProps>(
 
     useEffect(() => {
       const handleResize = () => {
-        setScreenFix(window.innerHeight < 665);
+        setScreenFix(window.innerHeight < 665 || window.innerWidth <= 430);
       };
 
       handleResize();
