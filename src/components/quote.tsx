@@ -4,6 +4,7 @@ import { useState, useRef } from "react"
 
 import { Twitter, Quote, Link2, RotateCw, Headphones, Camera } from "lucide-react"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader } from "@/components/ui/card"
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "./ui/tooltip"
 import { Button } from "./ui/button"
 import { Toaster, toast } from "sonner"
 
@@ -88,12 +89,21 @@ export default function RQuote({ onBgColorChange }: { onBgColorChange: (newColor
         return (
             <div>
                 <audio ref={audioRef} src={audioFile} />
-                <Button onClick={playAudio} 
-                        className={`${ photomode ? 'hidden' : ''} mainBtn share head absolute top-5`} 
-                        variant={outlineFade ? 'ghost' : 'outline'}
-                >
-                    <Headphones className="h-5 w-5" />
-                </Button>
+                <TooltipProvider delayDuration={1400}>
+                    <Tooltip>
+                        <TooltipTrigger asChild>
+                            <Button onClick={playAudio} 
+                                    className={`${ photomode ? 'hidden' : ''} mainBtn share head absolute top-5`} 
+                                    variant={outlineFade ? 'ghost' : 'outline'}
+                            >
+                                <Headphones className="h-5 w-5" />
+                            </Button>
+                        </TooltipTrigger>
+                        <TooltipContent>
+                            <p>listen to quote</p>
+                        </TooltipContent>
+                    </Tooltip>
+                </TooltipProvider>
             </div>
         )
     }
@@ -132,10 +142,19 @@ export default function RQuote({ onBgColorChange }: { onBgColorChange: (newColor
         <div className="flex items-center justify-center h-screen mx-auto" style={{ backgroundColor: bgColor, transition: "background-color 1s" }}>
             <Card className={`${outlineFade ? 'blur-sm' : ''} quotecard p-3 max-w-lg mb-40 mx-6`}>
                 <div className="relative shadheader">
-                    <Button onClick={refreshQuote} 
-                            className={`${ photomode ? 'hidden' : ''} mainBtn share absolute right-6 top-5`} variant={outlineFade ? 'ghost' : 'outline'}>
-                        <RotateCw className="h-5 w-5" />
-                    </Button>
+                    <TooltipProvider delayDuration={1400}>
+                        <Tooltip>
+                            <TooltipTrigger asChild>
+                                <Button onClick={refreshQuote} 
+                                        className={`${ photomode ? 'hidden' : ''} mainBtn share absolute right-6 top-5`} variant={outlineFade ? 'ghost' : 'outline'}>
+                                    <RotateCw className="h-5 w-5" />
+                                </Button>
+                            </TooltipTrigger>
+                            <TooltipContent>
+                                <p>refresh quote</p>
+                            </TooltipContent>
+                        </Tooltip>
+                    </TooltipProvider>
                     <AudioPlayer audioFile={quoteState[1]} />
                 </div>
                 <CardHeader>
