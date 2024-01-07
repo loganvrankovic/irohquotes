@@ -8,11 +8,11 @@ const AlertDialog = AlertDialogPrimitive.Root
 const AlertDialogTrigger = AlertDialogPrimitive.Trigger
 const AlertDialogPortal = AlertDialogPrimitive.Portal
 
-//hack to prevent background dimming when not on a large screen
 type AlertDialogOverlayProps = HTMLAttributes<HTMLDivElement>;
 
 const AlertDialogOverlay = forwardRef<HTMLDivElement, AlertDialogOverlayProps>(
   ({ className, ...props }, forwardedRef) => {
+    // prevents background dimmer on larger screens
     const [screenFix, setScreenFix] = useState(false);
 
     useEffect(() => {
@@ -31,7 +31,7 @@ const AlertDialogOverlay = forwardRef<HTMLDivElement, AlertDialogOverlayProps>(
     return (
       <AlertDialogPrimitive.Overlay
         className={cn(
-          `${screenFix ? '' : 'fixed inset-0'} z-50 bg-black/80 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state:closed]:fade-out-0 data-[state=open]:fade-in-0`,
+          `${screenFix ? '' : 'fixed inset-0'} alert-overlay-index bg-black/80 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state:closed]:fade-out-0 data-[state=open]:fade-in-0`,
           className
         )}
         {...props}

@@ -174,3 +174,7 @@ html, body {
 .tealink:hover {
   cursor: pointer;
 }
+
+.alert-overlay-index {
+  z-index: 999;
+}
