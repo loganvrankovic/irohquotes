@@ -1,9 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
- 
-html, body {
-  background-color: #7E9181;
+
+html,
+body {
+  background-color: #7e9181;
 }
 
 .wrapper {
@@ -41,7 +42,7 @@ html, body {
     --ring: 142.1 76.2% 36.3%;
     --radius: 0.5rem;
   }
- 
+
   .dark {
     --background: 20 14.3% 4.1%;
     --foreground: 0 0% 95%;
@@ -148,7 +149,8 @@ html, body {
   transition: opacity 0.5s ease-out !important;
 }
 
-.shadfooter, .shadheader {
+.shadfooter,
+.shadheader {
   position: relative;
   z-index: 998;
 }
